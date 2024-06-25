@@ -1,4 +1,3 @@
-# Memory Matching Game
 
 # Deployed Link
 
