@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./HeroSection.css"
 const images = [
   "https://zameensquare.com/_next/static/media/Post-Property-Banner.f6ea47b2.jpg",
   "https://zameensquare.com/_next/static/media/homeHeaderImage.25bb3789.gif",
@@ -21,7 +22,7 @@ const HeroSection = () => {
       <img
         src={images[currentImageIndex]}
         alt="Hero"
-        style={{ width: "100%" }}
+        
       />
     </div>
   );

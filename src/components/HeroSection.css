@@ -1,0 +1,16 @@
+.hero-section img{
+    width: 100%;
+
+}
+
+@media(max-width:900px){
+    .hero-section img{
+        width: 100%;
+    }
+}
+
+@media(max-width:500px){
+    .hero-section img{
+        width: 100%;
+    }
+}

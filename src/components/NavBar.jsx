@@ -12,9 +12,20 @@ const NavBar = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link className="link" to="/">
-          Zameen Square
+        <Link className="link" to="/"> 
+        <img src="https://zameensquare.com/_next/static/media/zameen-logo.be926326.png" alt="" />
+         
         </Link>
+   
+        <div className="location-dropdown">
+          <select name="drop" id="drop" className='select'  >
+            <option value="Benglore"  >Bengaluru</option>
+            <option value="Mysuru">Mysuru</option>
+          </select>
+          
+        </div>
+
+        
       </div>
       <nav className={isOpen ? "is-active" : ""}>
         <Link className="link" to="/buy">
@@ -29,7 +40,7 @@ const NavBar = () => {
         <Link className="link" to="/pg">
           PG
         </Link>
-        <Link className="link" to="/post-property">
+        <Link className="link" id="postprop" to="/post-property">
           Post Property
         </Link>
       </nav>
@@ -39,13 +50,42 @@ const NavBar = () => {
         </Link>
       </div>
 
-      <div className="burger" onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+
     </header>
   );
 };
 
 export default NavBar;
+// src/NavBar.jsx
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import './NavBar.css';
+
+// const NavBar = () => {
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-left">
+//         <img src="https://zameensquare.com/_next/static/media/zameen-logo.be926326.png" alt="Zameen Square" className="logo" />
+//         <div className="location-dropdown">
+//           <select name="drop" id="drop" className='select'  >
+//             <option value="Benglore"  >Benglore</option>
+//             <option value="Mysuru">Mysuru</option>
+//           </select>
+          
+//         </div>
+//       </div>
+//       <div className="navbar-center">
+//         <Link to="/buy" className="nav-link">Buy</Link>
+//         <Link to="/rent" className="nav-link">Rent</Link>
+//         <Link to="/sell" className="nav-link">Sell</Link>
+//         <Link to="/pg" className="nav-link">PG</Link>
+//       {/* </div>
+//       <div className="navbar-right"> */}
+//         <Link to="/post-property" className="post-property-button">Post Property</Link>
+//         <button className="login-button">Login</button>
+//       </div>
+//     </nav>
+//   );
+// };
+
+//export default NavBar;

@@ -28,7 +28,7 @@ const locations = [
 
   {
     price: "₹ 45,000",
-    type: "2BHK Apartment for Rent",
+    type: "3BHK Apartment for Rent",
     location: "HSR Layout",
     city: "Bengaluru",
     state: "Maisuru",
@@ -45,8 +45,8 @@ const locations = [
     price: "₹ 45,000",
     type: "2BHK Apartment for Rent",
     location: "HSR Layout",
-    city: "Tamilnadu",
-    state: "Chennai",
+    city: "Bengaluru",
+    state: "Domlur",
     postal_code: "560102",
     beds: 2,
     baths: 2,
@@ -60,8 +60,8 @@ const locations = [
     price: "₹ 45,000",
     type: "2BHK Apartment for Rent",
     location: "HSR Layout",
-    city: "Udisha",
-    state: "Bhuvneswar",
+    city: "Bengaluru",
+    state: "Jayanagar",
     postal_code: "560102",
     beds: 2,
     baths: 2,
@@ -75,8 +75,8 @@ const locations = [
     price: "₹ 45,000",
     type: "2BHK Apartment for Rent",
     location: "HSR Layout",
-    city: "Gujrat",
-    state: "Vapi",
+    city: "Bengaluru",
+    state: "Koramangala",
     postal_code: "560102",
     beds: 2,
     baths: 2,
@@ -88,10 +88,10 @@ const locations = [
   },
   {
     price: "₹ 48,000",
-    type: "2BHK Apartment for Rent",
+    type: "3BHK Apartment for PGs",
     location: "HSR Layout",
-    city: "Gujrat",
-    state: "Surat",
+    city: "Bengaluru",
+    state: "Banashankari",
     postal_code: "560102",
     beds: 2,
     baths: 2,
@@ -106,21 +106,73 @@ const locations = [
 
 const Home = () => {
   const [filteredLocations, setFilteredLocations] = useState(locations);
+  //const [filteredLocations, setFilteredLocations] = useState(locations);
 
   const handleSearch = (searchTerm) => {
     const filtered = locations.filter((location) =>
-      location.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      location.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
       location.state.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredLocations(filtered);
   };
 
+  const handleCat=(cat)=>{
+    const filtered = locations.filter((location) =>
+      location.type.toLowerCase().includes(cat.toLowerCase())
+      
+    );
+    setFilteredLocations(filtered);
+  }
+
+  const handleClickAll = ()=>{
+   // console.log("All")
+    const filtered = locations.filter((location) =>
+      location.type.toLowerCase()
+    );
+
+    
+    setFilteredLocations(filtered);
+  }
+
+  const handleClick2bhk = ()=>{
+    // console.log("All")
+     const filtered = locations.filter((location) =>
+       location.type.toLowerCase().includes("2bhk")
+     );
+ 
+     
+     setFilteredLocations(filtered);
+   }
+
+   const handleClick3bhk = ()=>{
+    // console.log("All")
+     const filtered = locations.filter((location) =>
+       location.type.toLowerCase().includes("3bhk")
+     );
+ 
+     
+     setFilteredLocations(filtered);
+   }
+
+  
   return (
     <div className="home">
       <HeroSection />
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} onCatChange={handleCat}   />
+
+<div className="head">
+      <h1>Popular Apartment in Bengaluru</h1>
+      <div className="spandiv">
+      <span> <button onClick={handleClickAll}  >All</button>  </span>  <span>  <button onClick={handleClick2bhk} >2Bhk</button> </span>  <span>  <button  onClick={handleClick3bhk} >3Bhk</button> </span>
+      </div>
+      </div>
+
+
+ <div className="cards">
       <div className="location-cards">
+      
         {filteredLocations.map((location, index) => (
+        
           <LocationCard
             key={index}
             image_url={location.image_url}
@@ -136,8 +188,12 @@ const Home = () => {
             details_url={location.details_url}
             location={location.location}
           />
+          
         ))}
       </div>
+      </div>
+     
+     
     </div>
   );
 };
